@@ -1,0 +1,21 @@
+#! /usr/bin/python
+import modulo07
+import math
+PI= 3.1415926535897931159979634685441852
+def error(nro_intervalos, nro_test, umbral):
+ fallos = 0
+ for i in range(nro_test):
+   s= modulo07.aproximacion_pi(nro_intervalos)
+   valor = abs(s - PI)
+   if valor >= umbral:
+      fallos += 1
+ por_error =(fallos/nro_test)*100
+ 
+ return por_error
+ 
+nro_intervalos=int(raw_input('introdusca numero intervalos'))
+nro_test=int(raw_input('introdusca el numero de test'))
+umbral=float(raw_input('el error que considere minimo'))
+pr=error(nro_intervalos,nro_test,umbral)
+print pr
+    
